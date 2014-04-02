@@ -10,21 +10,28 @@ namespace SpotSightWeb.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Item Major Minor")]
-        public string ItemMajorMinor { get; set; }
+        public string UUId { get; set; }
+
+        [Display(Name = "Major Number")]
+        public string MajorNumber { get; set; }
+
+        [Display(Name = "Minor Number")]
+        public string MinorNumber { get; set; }
         
-        public int Title { get; set; }
+        public string Title { get; set; }
         
-        public int Description { get; set; }
+        public string Description { get; set; }
         
         [Display(Name = "Image Url")]
-        public int ImageUrl { get; set; }
+        public string ImageUrl { get; set; }
         
         [Display(Name = "Video Url")]
-        public int VideoUrl { get; set; }
-        
+        public string VideoUrl { get; set; }
+
+        [Display(Name = "Audio Url")]
+        public string AudioUrl { get; set; }
         [Display(Name = "Is Push")]
-        public int IsPush { get; set; }
+        public bool IsPush { get; set; }
         
         public Category ItemCatogery { get; set; }
 

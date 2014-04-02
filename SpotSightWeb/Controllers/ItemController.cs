@@ -47,7 +47,7 @@ namespace SpotSightWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,ItemMajorMinor,Title,Description,ImageUrl,VideoUrl,IsPush")] Item item)
+        public ActionResult Create([Bind(Include="Id,UUId,MajorNumber,MinorNumber,Title,Description,ImageUrl,VideoUrl,AudioUrl,IsPush")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace SpotSightWeb.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,ItemMajorMinor,Title,Description,ImageUrl,VideoUrl,IsPush")] Item item)
+        public ActionResult Edit([Bind(Include="Id,UUId,MajorNumber,MinorNumber,Title,Description,ImageUrl,VideoUrl,AudioUrl,IsPush")] Item item)
         {
             if (ModelState.IsValid)
             {

@@ -8,6 +8,9 @@ namespace SpotSightWeb.Models
     public class Category
     {
         public int Id { get; set; }
+
+        //public int UUId { get; set; } This will be the Becon unique id.
+
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }

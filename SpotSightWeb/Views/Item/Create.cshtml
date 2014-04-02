@@ -18,10 +18,26 @@
         @Html.ValidationSummary(true)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ItemMajorMinor, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.UUId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ItemMajorMinor)
-                @Html.ValidationMessageFor(model => model.ItemMajorMinor)
+                @Html.EditorFor(model => model.UUId)
+                @Html.ValidationMessageFor(model => model.UUId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MajorNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MajorNumber)
+                @Html.ValidationMessageFor(model => model.MajorNumber)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MinorNumber, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.MinorNumber)
+                @Html.ValidationMessageFor(model => model.MinorNumber)
             </div>
         </div>
 
@@ -54,6 +70,14 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.VideoUrl)
                 @Html.ValidationMessageFor(model => model.VideoUrl)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AudioUrl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.AudioUrl)
+                @Html.ValidationMessageFor(model => model.AudioUrl)
             </div>
         </div>
 
