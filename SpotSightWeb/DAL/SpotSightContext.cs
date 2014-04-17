@@ -15,10 +15,12 @@ namespace SpotSightWeb.DAL
 
         public DbSet<Category> Categories { get; set; }
 
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+             //modelBuilder.Entity<Item>().HasRequired<Category>(s => s.Catogories)
+             //    .WithMany(s => s.Items).HasForeignKey(s => s.categoryId);
+           // modelBuilder.Entity<Item>().HasRequired(p => p.Catogories);
         }
     }
 }

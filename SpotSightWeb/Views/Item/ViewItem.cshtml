@@ -1,0 +1,206 @@
+﻿@model SpotSightWeb.ViewModel.SelectedItem
+@{
+    ViewBag.Title = "ViewItem";
+    Layout = "~/Views/Shared/_SpotSightLayout.cshtml";
+}
+
+<h2>ViewItem</h2>
+<style>
+    .modalDialog {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+
+    .modalDialogAudio {
+        position: fixed;
+        font-family: Arial, Helvetica, sans-serif;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0.8);
+        z-index: 99999;
+        opacity: 0;
+        -webkit-transition: opacity 400ms ease-in;
+        -moz-transition: opacity 400ms ease-in;
+        transition: opacity 400ms ease-in;
+        pointer-events: none;
+    }
+
+    .modalDialogAudio > div {
+        width: 330px;
+        position: relative;
+        margin: 10% auto;
+        padding: 5px 20px 13px 20px;
+        border-radius: 10px;
+        background: #fff;
+        background: -moz-linear-gradient(#fff, #999);
+        background: -webkit-linear-gradient(#fff, #999);
+        background: -o-linear-gradient(#fff, #999);
+    }
+
+        .modalDialog:target {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    .modalDialogAudio:target {
+        opacity: 1;
+        pointer-events: auto;
+    }
+        .modalDialog > div {
+            width: 600px;
+            position: relative;
+            margin: 10% auto;
+            padding: 5px 20px 13px 20px;
+            border-radius: 10px;
+            background: #fff;
+            background: -moz-linear-gradient(#fff, #999);
+            background: -webkit-linear-gradient(#fff, #999);
+            background: -o-linear-gradient(#fff, #999);
+        }
+
+    .close {
+        background: #606061;
+        color: #FFFFFF;
+        line-height: 25px;
+        position: absolute;
+        right: -12px;
+        text-align: center;
+        top: -10px;
+        width: 24px;
+        text-decoration: none;
+        font-weight: bold;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px;
+        -moz-box-shadow: 1px 1px 3px #000;
+        -webkit-box-shadow: 1px 1px 3px #000;
+        box-shadow: 1px 1px 3px #000;
+    }
+
+        .close:hover {
+            background: #00d9ff;
+        }
+</style>
+<br />
+<div class="header1">
+    <h1 class="alert alert-info" style="text-align:left;">@Model.Title</h1>
+    <br />
+    <img src="@Model.ImageUrl" alt="..." class="header">
+    <hr />
+</div>
+<br />
+<div class="row contentText">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10 alert alert-success"><img src="@Model.ItemImageUrl" width="80px" alt="..." class="img-rounded">&nbsp;&nbsp;&nbsp;@Model.Name</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Description</div>
+            <div class="col-lg-5">@Model.Description</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Latitude</div>
+            <div class="col-lg-5">@Model.Lat</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Longitude</div>
+            <div class="col-lg-5">@Model.Long</div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+    <div class="col-md-6">
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10 alert alert-success"><img src="@Model.ImageUrl" width="80px" alt="..." class="img-rounded">&nbsp;&nbsp;&nbsp;Item Details</div>
+            <div class="col-lg-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">UUID</div>
+            <div class="col-lg-5">@Model.UUId</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Major</div>
+            <div class="col-lg-5">@Model.MajorNumber</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Minor</div>
+            <div class="col-lg-5">@Model.MinorNumber</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Title</div>
+            <div class="col-lg-5">@Model.Title</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Descriptions</div>
+            <div class="col-lg-5">@Model.ItemDescription</div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">video link</div>
+            <div class="col-lg-5"><a href="#openModal">Click to view video</a></div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Audio link</div>
+            <div class="col-lg-5"><a href="#openModalAudio">Click to view audio</a></div>
+            <div class="col-lg-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">Is Push</div>
+            <div class="col-lg-5">@Model.IsPush</div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+</div>
+
+<div id="openModal" class="modalDialog">
+    <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <h2>Video Player</h2>
+        <iframe width="560" height="315" src="@Model.VideoUrl" frameborder="0" allowfullscreen></iframe>  
+    </div>
+</div>
+
+<div id="openModalAudio" class="modalDialogAudio">
+    <div>
+        <a href="#close" title="Close" class="close">X</a>
+        <h2>Audio Player</h2>
+
+        <audio controls>
+            <source src="@Model.AudioUrl" type="audio/mpeg">
+        </audio>
+    </div>
+</div>

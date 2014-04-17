@@ -7,6 +7,11 @@ namespace SpotSightWeb.Models
 {
     public class Category
     {
+
+        public Category()
+        {
+            Items = new List<Item>();
+        }
         public int Id { get; set; }
 
         //public int UUId { get; set; } This will be the Becon unique id.
@@ -16,5 +21,6 @@ namespace SpotSightWeb.Models
         public string ImageUrl { get; set; }
         public decimal Lat { get; set; }
         public decimal Long { get; set; }
+        public virtual IEnumerable<Item> Items { get; set; }
     }
 }

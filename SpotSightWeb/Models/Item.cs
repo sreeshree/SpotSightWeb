@@ -32,8 +32,10 @@ namespace SpotSightWeb.Models
         public string AudioUrl { get; set; }
         [Display(Name = "Is Push")]
         public bool IsPush { get; set; }
+
+        public int categoryId { get; set; }
         
-        public Category ItemCatogery { get; set; }
+        public virtual Category Catogories { get; set; }
 
     }
 }

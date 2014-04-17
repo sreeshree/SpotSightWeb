@@ -1,4 +1,4 @@
-﻿@model SpotSightWeb.Models.Item
+﻿@model SpotSightWeb.ViewModel.SelectedItem
 
 @{
     ViewBag.Title = "Create";
@@ -78,6 +78,16 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.AudioUrl)
                 @Html.ValidationMessageFor(model => model.AudioUrl)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownListFor(n => n.SelectedOrderId, new SelectList(Model.OrderTemplates, "OrderTemplateId", "OrderTemplateName", 1), "Please select an order template")*@
+              
+                @Html.DropDownListFor(model=>model.categoryId ,(SelectList)ViewBag.catgories, "--Select--"));
+                @* @Html.DropDownList("catgories", "Select the Category")*@
+                @Html.ValidationMessageFor(model => model.Name)
             </div>
         </div>
 
