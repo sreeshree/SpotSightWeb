@@ -200,13 +200,14 @@
     <Content Include="Content\Images\Koala.jpg" />
     <Content Include="Content\Images\Lighthouse.jpg" />
     <Content Include="Content\simplemodal.css" />
-    <Content Include="Scripts\bootstrap-modal.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\SpotSightAPI - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\SpotSightAPI - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\demo.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
