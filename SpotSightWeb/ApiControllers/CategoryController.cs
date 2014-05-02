@@ -1,5 +1,6 @@
 ﻿using SpotSightWeb.DAL;
 using SpotSightWeb.Models;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -11,9 +12,10 @@ namespace SpotSightWeb.ApiControllers
         private SpotSightContext db = new SpotSightContext();
 
         // GET api/Category
-        public IQueryable<Category> GetCategories()
+        public IList<Category> GetCategories()
         {
-            return db.Categories;
+            IList<Category> tst = db.Categories.ToList();
+            return tst;
         }
 
         // GET api/Category/5
