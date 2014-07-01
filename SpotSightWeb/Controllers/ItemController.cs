@@ -101,7 +101,9 @@ namespace SpotSightWeb.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(item).State = EntityState.Modified;
+               Item Tempitem = db.Items.Find(item.Id);
+                item.categoryId = Tempitem.categoryId;
+                db.Entry(Tempitem).CurrentValues.SetValues(item);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
